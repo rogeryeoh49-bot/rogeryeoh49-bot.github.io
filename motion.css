@@ -1,0 +1,20 @@
+/* Local integration for Apple's original StaggeredFadeIn/Card parameters.
+   Individual translate keeps entrance motion separate from hover scale. */
+.motion-waiting { opacity: 0; translate: 0 var(--staggered-translate-y, 30px); }
+.motion-playing { will-change: opacity, translate; }
+.portfolio-fancy .card-hover {
+    --card-transition-transform: transform 0.3s cubic-bezier(0,0,0.5,1);
+    --card-transition-background: background-color 0.344s ease;
+    transition: var(--card-transition-transform), var(--card-transition-background), border-color .3s, box-shadow .3s;
+}
+@media (hover: hover) and (pointer: fine) {
+    .portfolio-fancy .card-hover:hover { transform: scale(var(--card-element-scale, 1)); }
+    .portfolio-fancy .project-card:hover .image-placeholder { transform: none; filter: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+    .motion-waiting { opacity: 1; translate: none; }
+    .portfolio-fancy .card-hover:hover { transform: none; }
+}
+@media print {
+    .motion-waiting { opacity: 1; translate: none; }
+}

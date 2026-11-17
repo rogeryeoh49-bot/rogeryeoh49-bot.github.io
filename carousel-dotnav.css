@@ -1,0 +1,109 @@
+/* Portfolio integration only. The component rules live unchanged in
+   vendor/apple/timed-dotnav.css; these replace Apple's page layout/runtime. */
+.feature-badge, .project-number { display: none !important; }
+#featured-dotnav {
+    --autoplay-progress: 0;
+    --animation-duration: 5s;
+    --aap-background-color-alpha: 0.4;
+    position: absolute;
+    top: var(--featured-controls-top, 0px);
+    justify-content: center;
+    gap: 0;
+    margin: 0;
+    isolation: isolate;
+    pointer-events: auto;
+}
+.feature-gallery { position: relative; }
+.feature-controls-overlay {
+    position: absolute; inset: 0; z-index: 2;
+    display: flex; justify-content: center; align-items: flex-end;
+    pointer-events: none; overflow: clip;
+}
+#featured-dotnav .all-access-pass__background { width: 100%; }
+#featured-dotnav .play-pause-button { border: 0; background: transparent; padding: 0; cursor: pointer; }
+#featured-dotnav .icons { display: block; width: 100%; height: 100%; }
+#featured-dotnav .visuallyhidden {
+    position: absolute;
+    clip-path: inset(50%);
+    overflow: hidden;
+    height: 1px;
+    width: 1px;
+    white-space: nowrap;
+}
+/* The portfolio reset uses border-box; Apple's hit-area pseudo-element
+   assumes its content-box reset. */
+#featured-dotnav .dotnav-link::before { box-sizing: content-box; }
+/* Keep Apple's 115% fill and -15% leading offset, but animate the
+   compositor transform instead of recalculating width on every frame. */
+#featured-dotnav .dotnav-link.current::after {
+    width: 115%;
+    min-width: 0;
+    transform-origin: left center;
+}
+@keyframes aap-animate-progress {
+    from { transform: scaleX(0); }
+    to { transform: scaleX(1); }
+}
+@supports (-webkit-backdrop-filter: blur(1px)) {
+    #featured-dotnav .all-access-pass__background { -webkit-backdrop-filter: blur(calc(var(--aap-blur)*(2 - var(--alpha)))); }
+}
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+    #featured-dotnav .all-access-pass__background { background-color: rgb(var(--aap-background-color-solid)); }
+}
+
+/* Original .media-card-set timing from Apple's overview.built.css. */
+.feature-carousel {
+    --shared-media-gallery-transition-duration: 0.6s;
+    /* Resting space for the controls below the card after scrolling down. */
+    padding-bottom: 112px;
+}
+@media (max-width: 734px) { .feature-carousel { padding-bottom: 100px; } }
+
+/* Apple-inspired entrance: one rising bubble separates into two controls. */
+#featured-dotnav.intro-pending { opacity: 0; }
+#featured-dotnav.intro-entering { animation: featured-rise 1.3s .1s cubic-bezier(.19, 1.22, .3, 1) both; }
+/* Let the entrance travel from the viewport edge even below the gallery. */
+.feature-controls-overlay:has(#featured-dotnav.intro-entering),
+.portfolio-fancy .feature-carousel-section:has(#featured-dotnav.intro-entering) { overflow: visible; }
+#featured-dotnav.intro-entering::after {
+    content: ""; position: absolute; z-index: 2; pointer-events: none;
+    left: 50%; top: 50%; width: 56px; height: 56px; border-radius: 999px;
+    background: rgb(var(--aap-background-color-solid));
+    animation: featured-seed .62s .1s ease-out both;
+}
+#featured-dotnav.intro-entering .all-access-pass__element {
+    animation: featured-separate 1.25s .1s cubic-bezier(.22, 1.2, .35, 1) both;
+}
+#featured-dotnav.intro-entering .all-access-pass__background {
+    animation: featured-bubble 1.25s .1s cubic-bezier(.2, 1.15, .3, 1) both;
+}
+#featured-dotnav.intro-entering .tablist-wrapper { animation: featured-content .18s .84s ease-out both; }
+#featured-dotnav.intro-entering .play-pause-button { animation: featured-content .2s 1.04s ease-out both; }
+@keyframes featured-rise {
+    from { transform: translateY(var(--intro-rise-distance, 180px)); }
+    to { transform: translateY(0); }
+}
+@keyframes featured-seed {
+    0% { opacity: 0; transform: translate(-50%, -50%) scale(.15); }
+    15% { opacity: 1; transform: translate(-50%, -50%) scale(.8, 1.15); }
+    60% { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+    95%, 100% { opacity: 0; transform: translate(-50%, -50%) scale(1); }
+}
+@keyframes featured-separate {
+    0%, 30% { opacity: 0; transform: translateX(var(--intro-center-offset, 0px)); }
+    40% { opacity: 1; }
+    100% { opacity: 1; transform: translateX(0); }
+}
+@keyframes featured-bubble {
+    0%, 30% { transform: translate(-50%, -50%) scale(.35, .65); }
+    100% { transform: translate(-50%, -50%) scale(1); }
+}
+@keyframes featured-content { from { opacity: 0; } to { opacity: 1; } }
+@media (prefers-reduced-motion: reduce) {
+    #featured-dotnav.intro-pending, #featured-dotnav.intro-entering { opacity: 1; transform: none; animation: none; }
+    #featured-dotnav.intro-entering::after { display: none; }
+    #featured-dotnav.intro-entering .all-access-pass__element,
+    #featured-dotnav.intro-entering .all-access-pass__background,
+    #featured-dotnav.intro-entering .play-pause-button,
+    #featured-dotnav.intro-entering .tablist-wrapper { animation: none; }
+}

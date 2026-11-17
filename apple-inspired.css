@@ -1,0 +1,154 @@
+/* Apple-inspired treatment for the introduction. Featured carousel stays independent. */
+.portfolio-fancy .hero {
+    min-height: min(900px, calc(100svh - 72px));
+    background: #fff;
+    border-bottom: 0;
+}
+.portfolio-fancy .hero-center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 44px;
+    max-width: 1050px;
+    padding: 90px 0;
+    text-align: center;
+}
+.portfolio-fancy .hero-kicker, .hero-side-label {
+    color: #6e6e73;
+    font: 600 14px/1.4 -apple-system, BlinkMacSystemFont, sans-serif;
+    letter-spacing: 0;
+}
+.portfolio-fancy .hero h1 {
+    margin-top: 18px;
+    font-size: clamp(80px, 10vw, 150px);
+    line-height: .95;
+    letter-spacing: -.065em;
+}
+.portfolio-fancy .hero h1 span, .portfolio-fancy .hero h1 em { display: inline; }
+.portfolio-fancy .hero h1 em {
+    margin: 0 0 0 .15em;
+    color: #1d1d1f;
+    font-family: inherit;
+    font-size: 1em;
+    font-style: normal;
+    font-weight: 600;
+    letter-spacing: inherit;
+}
+.hero-aside { max-width: 650px; margin: 0; padding: 0; border: 0; }
+.portfolio-fancy .hero-description { margin: 14px auto 0; color: #6e6e73; font-size: clamp(20px, 2.2vw, 27px); line-height: 1.3; font-weight: 400; letter-spacing: -.025em; }
+.hero-attribution { margin-top: 18px; color: #86868b; }
+.portfolio-fancy .hero-links { display: flex; justify-content: center; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
+.portfolio-fancy .hero-links a, .portfolio-fancy .hero-links a:first-child {
+    width: auto; min-height: 44px; padding: 11px 20px; gap: 9px;
+    border: 1px solid #0071e3; border-radius: 999px; background: transparent;
+    color: #0071e3; font-size: 15px;
+}
+.portfolio-fancy .hero-links a:first-child { background: #0071e3; color: white; }
+.portfolio-fancy .hero-links a:hover { background: #eaf4ff; border-color: #0071e3; color: #0071e3; }
+.portfolio-fancy .hero-links a:first-child:hover { background: #0077ed; color: white; }
+.portfolio-fancy .footer-github { display: inline-flex; align-items: center; justify-content: center; min-height: 44px; padding: 11px 20px; border: 1px solid #0071e3; border-radius: 999px; background: transparent; color: #0071e3; font-size: 15px; text-decoration: none; transition: background .25s, border-color .25s; }
+.portfolio-fancy .footer-github:hover { background: #eaf4ff; border-color: #0071e3; color: #0071e3; }
+.portfolio-fancy .hero-links a span { font-size: 16px; }
+.portfolio-fancy .hero-bottom-note { color: #86868b; border-color: #e8e8ed; }
+.portfolio-fancy .about { padding: 150px clamp(24px, 5vw, 88px); background: #f5f5f7; }
+.portfolio-fancy .about-content { display: flex; flex-direction: column; max-width: 1000px; gap: 60px; text-align: center; }
+.portfolio-fancy .about .eyebrow { color: #1d1d1f; font: 600 18px/1.4 -apple-system, BlinkMacSystemFont, sans-serif; letter-spacing: 0; }
+.portfolio-fancy .about h2 { margin-top: 15px; font-size: clamp(56px, 7vw, 96px); line-height: 1.02; font-weight: 650; letter-spacing: -.055em; }
+.portfolio-fancy .about h2 em, .about-ampersand { color: inherit; font: inherit; }
+.portfolio-fancy .about-intro { margin-top: 30px; color: #1d1d1f; font: 600 18px/1.4 -apple-system, BlinkMacSystemFont, sans-serif; letter-spacing: 0; }
+.portfolio-fancy .about-description { max-width: 760px; margin: 18px auto 0; color: #6e6e73; font-size: clamp(18px, 2vw, 23px); font-weight: 400; line-height: 1.45; }
+.portfolio-fancy .about-art { max-width: 850px; padding: 32px; border: 0; border-radius: 32px; background: #fff; box-shadow: none; }
+.portfolio-fancy .about-art svg { max-height: 500px; }
+@media (max-width: 700px) {
+    .portfolio-fancy .hero { min-height: 680px; }
+    .portfolio-fancy .hero-center { display: flex; padding: 70px 0; gap: 38px; }
+    .portfolio-fancy .hero h1 { font-size: clamp(62px, 12vw, 84px); }
+    .portfolio-fancy .hero h1 em { margin-left: .12em; }
+    .hero-aside { margin: 0; padding: 0; border: 0; }
+    .portfolio-fancy .about { padding-block: 95px; }
+    .portfolio-fancy .about-content { gap: 42px; }
+    .portfolio-fancy .about h2 { font-size: clamp(48px, 11vw, 68px); }
+    .portfolio-fancy .about-art { padding: 20px; border-radius: 24px; }
+}
+
+/* SF Pro typography for the portfolio's main headings and descriptions. */
+.portfolio-fancy {
+    --display-font: "SF Pro Display", -apple-system, BlinkMacSystemFont, "Helvetica Neue", sans-serif;
+}
+.portfolio-fancy :is(.feature-carousel-header h2, .feature-copy h3, .saved-links-header h2, .saved-link h3, .ipod-tribute-copy h2, .footer-name) {
+    font-family: "SF Pro Display", -apple-system, BlinkMacSystemFont, "Helvetica Neue", sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    letter-spacing: -.025em;
+    line-height: 1.05;
+}
+.portfolio-fancy :is(.feature-description, .saved-links-header > p, .saved-link-description, .ipod-intro) {
+    font-family: "SF Pro Display", -apple-system, BlinkMacSystemFont, "Helvetica Neue", sans-serif;
+    font-weight: 400;
+    letter-spacing: .011em;
+    line-height: 1.38;
+}
+
+/* Project images sit directly on the page, with captions beneath them. */
+.portfolio-fancy .projects-section {
+    margin: 0;
+    padding: 120px clamp(24px, 5vw, 80px) 100px;
+    background: #fff;
+    color: #1d1d1f;
+    border: 0;
+    border-radius: 0;
+    box-shadow: none;
+}
+.portfolio-fancy .projects-header { margin-bottom: 56px; padding-bottom: 0; border: 0; }
+.portfolio-fancy .projects-header h2 { color: #1d1d1f; font-size: clamp(48px, 6vw, 88px); font-weight: 650; letter-spacing: -.055em; line-height: 1.05; }
+.portfolio-fancy .projects-grid { gap: 70px 24px; }
+.portfolio-fancy .project-card,
+.portfolio-fancy .project-card:hover {
+    padding: 0; border: 0; border-radius: 0; background: transparent;
+    box-shadow: none; transform: none; overflow: visible;
+}
+.portfolio-fancy .project-image { aspect-ratio: 4 / 3; border: 0; border-radius: 24px; overflow: hidden; }
+.portfolio-fancy .project-card:hover .project-cover { transform: none; }
+.portfolio-fancy .project-info { padding: 24px 12px 0; gap: 8px 16px; }
+.portfolio-fancy .project-info > p:not(.project-summary) { margin: 0; color: #6e6e73; font: 600 12px/1.4 -apple-system, BlinkMacSystemFont, sans-serif; letter-spacing: .04em; }
+.portfolio-fancy .project-info h3,
+.portfolio-fancy .project-card[data-project="project4"] .project-info h3 {
+    color: #1d1d1f; font: 600 clamp(22px, 2vw, 30px)/1.2 -apple-system, BlinkMacSystemFont, sans-serif; letter-spacing: -.025em;
+}
+.portfolio-fancy .project-info h3 a { color: inherit; }
+.portfolio-fancy .project-info .project-summary {
+    grid-column: 1; grid-row: 3; max-width: 38em; margin: 0;
+    color: #6e6e73; font: 400 clamp(16px, 1.3vw, 19px)/1.4 -apple-system, BlinkMacSystemFont, sans-serif;
+    letter-spacing: -.01em; text-transform: none;
+}
+.portfolio-fancy .project-info .project-plus { grid-column: 2; grid-row: 2 / 4; }
+.portfolio-fancy .project-plus { background: #e8e8ed; color: #1d1d1f; box-shadow: none; }
+.portfolio-fancy .project-card:hover .project-plus { background: #d2d2d7; color: #1d1d1f; }
+.portfolio-fancy .projects-footer { margin-top: 80px; }
+.portfolio-fancy .projects-disclosure { color: #6e6e73; }
+@media (max-width: 700px) {
+    .portfolio-fancy .projects-section { margin: 0; padding: 80px 24px; border-radius: 0; }
+    .portfolio-fancy .projects-header { margin-bottom: 36px; }
+    .portfolio-fancy .projects-grid { gap: 48px; }
+    .portfolio-fancy .project-image { border-radius: 20px; }
+    .portfolio-fancy .project-info { padding: 20px 6px 0; }
+}
+
+.portfolio-fancy .hero-links a:first-child { background: #fff; color: #0071e3; }
+.portfolio-fancy .hero-links a:first-child:hover { background: #eaf4ff; color: #0071e3; }
+.portfolio-fancy .hero-links a:last-child { background: #0071e3; color: #fff; }
+.portfolio-fancy .hero-links a:last-child:hover { background: #0077ed; color: #fff; }
+.portfolio-fancy .navbar-original .navbar-github {
+    display: inline-flex; align-items: center; min-height: 44px; padding: 11px 20px;
+    border: 1px solid #0071e3; border-radius: 999px; background: #0071e3; color: #fff;
+    font-family: var(--display-font); font-size: 15px; line-height: normal; letter-spacing: normal;
+}
+.portfolio-fancy .navbar-original .navbar-github:hover { background: #0077ed; border-color: #0077ed; color: #fff; }
+
+.portfolio-fancy .navbar-original .navbar-github {
+    min-height: 34px; padding: 7px 15px; background: #fff; color: #0071e3; font-size: 12px;
+}
+.portfolio-fancy .navbar-original .navbar-github:hover { background: #eaf4ff; color: #0071e3; }
+
+.portfolio-fancy .navbar-original .navbar-github { min-height: 28px; padding: 6px 12px; line-height: 16px; }

@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Minimax AI — Roger Yeoh</title>
+  <meta name="description" content="A graphical Tic-Tac-Toe game with an AI that searches the possible moves before choosing its own. You can draw against it. Winning is another matter.">
+  <meta name="theme-color" content="#f5f5f7">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="stylesheet" href="/style.css">
+  <link rel="stylesheet" href="/fancy.css">
+  <link rel="stylesheet" href="/between-us.css">
+  <link rel="stylesheet" href="/glass.css">
+  <link rel="stylesheet" href="/project-page.css?v=project-nav-2">
+</head>
+<body class="portfolio-fancy project-detail-page ">
+<a class="skip-link" href="#project-content">Skip to content</a>
+<nav class="project-page-nav" aria-label="Project navigation">
+    <a class="navbar-logo" href="/">Roger</a>
+    <a class="project-back-home" href="/">Back to home</a>
+</nav>
+<nav class="navbar navbar-floating" aria-label="Floating navigation" aria-hidden="true" inert>
+    <div class="navbar-floating-inner liquid-glass">
+        <a class="navbar-logo navbar-logo-floating" href="/#top" aria-label="Roger — back to homepage">Roger</a>
+        <div class="linernotes-nav-actions">
+            <a href="https://github.com/rogeryeoh49-bot" target="_blank" rel="noopener noreferrer" class="navbar-github navbar-github-floating">GITHUB</a>
+            <a href="/" class="navbar-github navbar-github-floating nav-back-home">Back to home</a>
+        </div>
+    </div>
+</nav>
+<main id="project-content" class="modal-window">
+
+
+            <!-- MODAL HERO -->
+
+            <div class="modal-hero">
+
+                <span id="modalCategory">ARTIFICIAL INTELLIGENCE</span>
+
+
+                <h1 id="modalTitle">MINIMAX AI</h1>
+
+
+                <p id="modalDescription">A graphical Tic-Tac-Toe game with an AI that searches the possible moves before choosing its own. You can draw against it. Winning is another matter.</p>
+
+
+            </div>
+
+
+
+
+
+            <!-- BETWEEN US: edit the four chapters here; shared dialog behavior stays in script.js. -->
+
+
+            <!-- HERO MEDIA -->
+
+            <div class="modal-media" data-standard-project-content="">
+
+                <div class="media-placeholder">
+                    IMAGE / VIDEO
+                </div>
+
+            </div>
+
+
+
+            <!-- ABOUT -->
+
+            <div class="modal-story" data-standard-project-content="">
+
+                <div>
+
+                    <span>
+                        ABOUT THE PROJECT
+                    </span>
+
+                </div>
+
+
+                <div>
+
+                    <div class="modal-prose" id="modalLongDescription"><p>I built this project during a one-week AI summer school at Fitzwilliam College in Cambridge. Tic-Tac-Toe gave me a small board on which to work with recursive decision-making and game-tree search.</p><p>For each possible move, the AI explores the moves that could follow until it reaches a win, a loss, or a draw. Minimax works back through those outcomes, choosing on the assumption that the other player will also make their best move.</p><p>That gives the game a fairly stubborn opponent: with correct play, the AI cannot lose. The graphical board puts the algorithm into a game I can actually play and test.</p></div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- PROCESS -->
+
+            <div class="modal-media" data-standard-project-content="">
+
+                <div class="media-placeholder">
+                    IMAGE / PROCESS
+                </div>
+
+            </div>
+
+
+
+            <!-- BUILDING IT -->
+
+            <div class="modal-story" id="modalProcessSection" data-standard-project-content="">
+                <div><span>BUILDING IT</span></div>
+                <div class="modal-prose" id="modalProcess"><p>The project brings together the search algorithm and a graphical interface. A move on the board becomes a new position for the AI to evaluate, and its chosen move comes back to the board.</p><p>The small size of the game makes it possible to trace a decision all the way through. If a move looks wrong, I can go back through the possible positions and check how the result was chosen. That is the part I find interesting: being able to follow the reasoning behind a move.</p></div>
+            </div>
+
+            <!-- DEMONSTRATION -->
+
+            <div class="modal-story" data-standard-project-content="">
+
+                <div>
+
+                    <span>
+                        DEMONSTRATION
+                    </span>
+
+                </div>
+
+
+                <div>
+
+                    <div class="video-placeholder">
+                        VIDEO
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- TECHNOLOGY -->
+
+            <div class="modal-tech" data-standard-project-content="">
+
+                <span id="modalTechnologyLabel">ALGORITHM</span>
+
+
+                <div id="modalTechnologies">Minimax / Recursive search / Game trees</div>
+
+            </div>
+
+
+        </main>
+<footer class="project-page-footer"><a href="/#projects">← Back to all projects</a></footer>
+
+<script src="/glass.js" defer></script>
+<script src="/project-nav.js" defer></script>
+</body>
+</html>

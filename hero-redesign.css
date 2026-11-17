@@ -1,0 +1,161 @@
+/* Editorial hero layer. The rest of the portfolio keeps its existing design. */
+.portfolio-fancy .hero {
+    display: grid;
+    grid-template-rows: 1fr auto;
+    align-items: stretch;
+    min-height: clamp(680px, calc(100svh - 72px), 900px);
+    padding: 35px clamp(28px, 5vw, 88px) 34px;
+    background: linear-gradient(115deg, #f6f2ec 0%, #f4f1ef 48%, #e9e6e8 100%);
+    border-bottom: 1px solid #d8d0cb;
+}
+.portfolio-fancy .hero::before,
+.portfolio-fancy .hero::after { content: none; }
+.hero-topline,
+.portfolio-fancy .hero-bottom-note {
+    width: 100%;
+    max-width: 1550px;
+    margin-inline: auto;
+    display: flex;
+    justify-content: space-between;
+    gap: 24px;
+    color: #756d70;
+    font: 10px/1.5 var(--label-font, monospace);
+    letter-spacing: .12em;
+}
+.portfolio-fancy .hero-bottom-note {
+    position: static;
+    padding-top: 22px;
+    border-top: 1px solid #a99d9a80;
+}
+.portfolio-fancy .hero-center {
+    width: 100%;
+    max-width: 1550px;
+    margin: auto;
+    padding: 60px 0 76px;
+    display: grid;
+    grid-template-columns: minmax(0, 1.25fr) minmax(300px, .75fr);
+    gap: clamp(36px, 5vw, 100px);
+    align-items: end;
+    text-align: left;
+}
+.portfolio-fancy .hero-kicker,
+.hero-side-label {
+    margin: 0;
+    color: #8d655b;
+    font: 10px/1.5 var(--label-font, monospace);
+    letter-spacing: .16em;
+}
+.portfolio-fancy .hero h1 {
+    margin: 28px 0 0;
+    font-size: clamp(100px, 11vw, 178px);
+    font-weight: 600;
+    line-height: .82;
+    letter-spacing: -.095em;
+    background: none;
+    color: #242228;
+    -webkit-text-fill-color: currentColor;
+}
+.portfolio-fancy .hero h1 span,
+.portfolio-fancy .hero h1 em { display: block; }
+.portfolio-fancy .hero h1 em {
+    margin: 12px 0 0 4px;
+    color: #9b5d4d;
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: .91em;
+    font-weight: 400;
+    font-style: italic;
+    letter-spacing: -.08em;
+}
+.portfolio-fancy .hero h1 .hero-period { display: inline; color: #242228; }
+.hero-aside {
+    width: 100%;
+    max-width: 410px;
+    margin-bottom: 3px;
+    padding-left: 30px;
+    border-left: 1px solid #aa9d9b;
+}
+.portfolio-fancy .hero-description {
+    max-width: none;
+    margin: 18px 0 0;
+    color: #3e3940;
+    font-size: clamp(23px, 2vw, 30px);
+    font-weight: 400;
+    line-height: 1.32;
+    letter-spacing: -.045em;
+    text-wrap: balance;
+}
+.hero-attribution { margin: 30px 0 0; color: #6e6669; font-size: 12px; line-height: 1.65; letter-spacing: 0; }
+.hero-attribution span,
+.hero-attribution cite { display: block; }
+.hero-attribution cite { margin-top: 2px; color: #82797c; font-style: italic; }
+.portfolio-fancy .hero-links {
+    display: grid;
+    justify-content: stretch;
+    gap: 0;
+    margin-top: 34px;
+}
+.portfolio-fancy .hero-links a,
+.portfolio-fancy .hero-links a:first-child {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    min-height: 52px;
+    padding: 14px 0;
+    border: 0;
+    border-bottom: 1px solid #aaa09e;
+    border-radius: 0;
+    background: transparent;
+    box-shadow: none;
+    color: #2e2a30;
+    font-size: 14px;
+    text-align: left;
+    transition: color .2s, border-color .2s;
+}
+.portfolio-fancy .hero-links a:hover,
+.portfolio-fancy .hero-links a:first-child:hover {
+    background: transparent;
+    border-color: #9b5d4d;
+    color: #9b5d4d;
+}
+.portfolio-fancy .hero-links a span { font-size: 20px; line-height: 1; }
+@media (max-width: 900px) {
+    .portfolio-fancy .hero-center { grid-template-columns: minmax(0, 1fr) minmax(260px, .75fr); gap: 32px; }
+    .portfolio-fancy .hero h1 { font-size: clamp(90px, 11vw, 120px); }
+}
+@media (max-width: 700px) {
+    .portfolio-fancy .hero { min-height: max(680px, calc(100svh - 64px)); padding: 24px 24px 26px; }
+    .hero-topline span:last-child { display: none; }
+    .portfolio-fancy .hero-center { display: block; padding: 42px 0 56px; }
+    .portfolio-fancy .hero h1 { margin-top: 20px; font-size: clamp(78px, 18vw, 118px); }
+    .portfolio-fancy .hero h1 em { margin-top: 11px; }
+    .hero-aside { max-width: none; margin: 48px 0 0; padding: 22px 0 0; border-left: 0; border-top: 1px solid #aa9d9b; }
+    .portfolio-fancy .hero-description { max-width: 520px; font-size: 23px; }
+    .portfolio-fancy .hero-links { margin-top: 22px; }
+    .portfolio-fancy .hero-bottom-note { font-size: 9px; }
+}
+@media (max-width: 370px) {
+    .portfolio-fancy .hero { padding-inline: 20px; }
+    .portfolio-fancy .hero h1 { font-size: 72px; }
+    .portfolio-fancy .hero-description { font-size: 21px; }
+}
+@media (forced-colors: active) {
+    .portfolio-fancy .hero h1,
+    .portfolio-fancy .hero h1 em { color: CanvasText; -webkit-text-fill-color: CanvasText; }
+}
+
+/* Keep the editorial links aligned with their destination direction. */
+.portfolio-fancy .hero-links a:hover span { transform: translate(3px, -3px); }
+@media (prefers-reduced-motion: reduce) {
+    .portfolio-fancy .hero-links a:hover span { transform: none; }
+}
+
+/* Match the initial GitHub link to the hero's editorial links. */
+.portfolio-fancy .navbar-original .navbar-github {
+    min-height: 0; padding: 8px 0; border: 0; border-bottom: 1px solid #aaa09e;
+    border-radius: 0; background: transparent; color: #2e2a30;
+    font-family: var(--display-font); font-size: 14px; letter-spacing: normal;
+    transition: color .2s, border-color .2s;
+}
+.portfolio-fancy .navbar-original .navbar-github:hover {
+    background: transparent; border-color: #9b5d4d; color: #9b5d4d;
+}

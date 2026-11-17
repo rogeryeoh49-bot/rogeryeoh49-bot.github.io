@@ -1,0 +1,4 @@
+/* Original rules from https://www.apple.com/v/iphone-duo/d/built/styles/overview.built.css */
+[data-component-list*=StaggeredFadeIn]{--staggered-delay:0.15;--staggered-opacity-duration:0.9;--staggered-translate-y:30px;--staggered-translate-y-duration:0.7}
+.card-hover{transition:var(--card-transition-transform),var(--card-transition-background);transform:scale(1)}
+html.no-touch .card-hover:hover{transform:scale(var(--card-element-scale))}
